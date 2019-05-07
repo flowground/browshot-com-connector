@@ -1,0 +1,15 @@
+{
+    "name": "browshot-com-connector",
+    "version": "1.17.0",
+    "description": "Take screenshots of any website in real time",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}

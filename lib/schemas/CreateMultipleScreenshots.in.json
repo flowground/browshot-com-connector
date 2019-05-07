@@ -1,0 +1,118 @@
+{
+    "type": "object",
+    "properties": {
+        "url": {
+            "required": true,
+            "type": "string"
+        },
+        "instance_id": {
+            "required": true,
+            "type": "integer"
+        },
+        "size": {
+            "type": "string",
+            "enum": [
+                "screen",
+                "page"
+            ],
+            "default": "screen"
+        },
+        "cache": {
+            "type": "integer",
+            "default": 86400
+        },
+        "delay": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 60,
+            "default": 5
+        },
+        "flash_delay": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 30,
+            "default": 10
+        },
+        "screen_width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000,
+            "default": 1024
+        },
+        "screen_height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000,
+            "default": 768
+        },
+        "priority": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+        },
+        "referer": {
+            "type": "string"
+        },
+        "post_data": {
+            "type": "string"
+        },
+        "cookie": {
+            "type": "string"
+        },
+        "script": {
+            "type": "string"
+        },
+        "details": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3,
+            "default": 2
+        },
+        "html": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0
+        },
+        "max_wait": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 60,
+            "default": 0
+        },
+        "headers": {
+            "type": "string"
+        },
+        "hosting": {
+            "type": "string",
+            "enum": [
+                "s3",
+                "browshot"
+            ]
+        },
+        "hosting_height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 15000
+        },
+        "hosting_width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+        },
+        "hosting_scale": {
+            "type": "number",
+            "format": "float",
+            "default": 1
+        },
+        "hosting_bucket": {
+            "type": "string"
+        },
+        "hosting_file": {
+            "type": "string"
+        },
+        "hosting_headers": {
+            "type": "string"
+        }
+    }
+}

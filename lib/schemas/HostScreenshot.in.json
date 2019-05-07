@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer"
+        },
+        "hosting": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "s3",
+                "browshot"
+            ]
+        },
+        "width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+        },
+        "height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 15000
+        },
+        "scale": {
+            "type": "number",
+            "format": "double",
+            "default": 1
+        },
+        "bucket": {
+            "type": "string"
+        },
+        "file": {
+            "type": "string"
+        },
+        "headers": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer"
+        },
+        "width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+        },
+        "height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 15000
+        },
+        "scale": {
+            "type": "number",
+            "format": "double",
+            "default": 1
+        },
+        "zoom": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 100
+        },
+        "ratio": {
+            "type": "string",
+            "enum": [
+                "fit",
+                "fill"
+            ],
+            "default": "fit"
+        },
+        "left": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+        },
+        "right": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+        },
+        "top": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+        },
+        "bottom": {
+            "type": "integer"
+        },
+        "format": {
+            "type": "string",
+            "enum": [
+                "png",
+                "jpeg"
+            ],
+            "default": "png"
+        },
+        "shot": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "default": 1
+        },
+        "quality": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 100
+        }
+    }
+}

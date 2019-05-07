@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 100
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "error",
+                "finished",
+                "in_process"
+            ]
+        }
+    }
+}

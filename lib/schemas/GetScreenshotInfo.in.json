@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer"
+        },
+        "details": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3,
+            "default": 2
+        }
+    }
+}

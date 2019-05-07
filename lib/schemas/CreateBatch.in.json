@@ -1,0 +1,150 @@
+{
+    "type": "object",
+    "properties": {
+        "hosting": {
+            "type": "string",
+            "enum": [
+                "s3"
+            ]
+        },
+        "hosting_height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 15000
+        },
+        "hosting_width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+        },
+        "hosting_scale": {
+            "type": "number",
+            "format": "float",
+            "default": 1
+        },
+        "hosting_bucket": {
+            "type": "string"
+        },
+        "hosting_file": {
+            "type": "string"
+        },
+        "hosting_headers": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "size": {
+                    "description": "screenshots size - \"screen\" (default) or \"page\"",
+                    "type": "string",
+                    "enum": [
+                        "screen",
+                        "page"
+                    ],
+                    "default": "screen"
+                },
+                "name": {
+                    "description": "name of the batch",
+                    "type": "string"
+                },
+                "width": {
+                    "description": "thumbnail width.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2000,
+                    "default": 1024
+                },
+                "height": {
+                    "description": "thumbnail height",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 15000
+                },
+                "delay": {
+                    "description": "number of seconds to wait after the page has loaded. This is used to let JavaScript run longer before taking the screenshot. Use delay=0 to take screenshots faster.",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 60,
+                    "default": 5
+                },
+                "flash_delay": {
+                    "description": "number of seconds to wait after the page has loaded if Flash elements are present. Use flash_delay=0 to take screenshots faster.",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 30,
+                    "default": 10
+                },
+                "screen_width": {
+                    "description": "width of the browser window. For desktop browsers only.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2000,
+                    "default": 1024
+                },
+                "screen_height": {
+                    "description": "height of the browser window. For desktop browsers only. (Note: full-page screenshots can have a height of up to 15,000px)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2000,
+                    "default": 768
+                },
+                "priority": {
+                    "description": "assign priority to the screenshot (for private instances only)",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 3
+                },
+                "referer": {
+                    "description": "use a custom referrer header - paid screenshots only",
+                    "type": "string"
+                },
+                "post_data": {
+                    "description": "send a POST requests with post_data, useful for filling out forms - paid screenshots only",
+                    "type": "string"
+                },
+                "cookie": {
+                    "description": "set a cookie for the URL requested (see Custom POST Data, Referer and Cookie) Cookies should be separated by a ; - paid screenshots only",
+                    "type": "string"
+                },
+                "script": {
+                    "description": "URL of javascript file to execute after the page load event",
+                    "type": "string"
+                },
+                "details": {
+                    "description": "level of information available with screenshot/info",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 3,
+                    "default": 2
+                },
+                "html": {
+                    "description": "saves the HTML of the rendered page which can be retrieved by the API call screenshot/html. This feature costs *1 credit* per screenshot.",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "default": 0
+                },
+                "max_wait": {
+                    "description": "maximum number of seconds to wait before triggering the PageLoad event. Note that delay will still be used. (default: 0 = disabled)",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 60,
+                    "default": 0
+                },
+                "headers": {
+                    "description": "any custom HTTP headers. (Not supported with Internet Explorer)",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "image as PNG or JPEG",
+                    "type": "string",
+                    "enum": [
+                        "png",
+                        "jpeg"
+                    ],
+                    "default": "png"
+                }
+            }
+        }
+    }
+}

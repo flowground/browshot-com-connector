@@ -1,0 +1,327 @@
+{
+    "title": "Browshot",
+    "description": "Take screenshots of any website in real time",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/browshot.com/1.17.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.browshot.com/api/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyQuery": {
+                "label": "key (apiKeyQuery)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "GetAccountInfo": {
+            "main": "./lib/actions/GetAccountInfo.js",
+            "title": "Get information about your account",
+            "description": "Get information about your account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetAccountInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateBatch": {
+            "main": "./lib/actions/CreateBatch.js",
+            "title": "Requests thousands of screenshtos at once",
+            "description": "Get hundreds or thousands of screenshots from a text file. You can use this API call or the dashboard. Unlike the other API calls, you must issue a POST request with the Content-Type \"multipart/form-data\" in order to upload the text file. The text file must contain the list of URLs to request, 1 URL per line. Failed screenshots will be tried up to 3 times before giving up.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateBatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetBatchInfo": {
+            "main": "./lib/actions/GetBatchInfo.js",
+            "title": "Get the batch status",
+            "description": "Get the status of a batch requested through the API or through the dashboard.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetBatchInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetBrowserInfo": {
+            "main": "./lib/actions/GetBrowserInfo.js",
+            "title": "Get information about a browser",
+            "description": "Get information about a browser.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetBrowserInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetBrowsersInfo": {
+            "main": "./lib/actions/GetBrowsersInfo.js",
+            "title": "Get all browsers",
+            "description": "Get all browsers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetBrowsersInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetInstanceInfo": {
+            "main": "./lib/actions/GetInstanceInfo.js",
+            "title": "Get information about an instance",
+            "description": "Get information about an instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetInstanceInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetInstancesInfo": {
+            "main": "./lib/actions/GetInstancesInfo.js",
+            "title": "Get all instances",
+            "description": "Get all instances.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetInstancesInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateScreenshot": {
+            "main": "./lib/actions/CreateScreenshot.js",
+            "title": "Request a screenshot",
+            "description": "Screenshots requests to private and shared instances require a positive balance.\n\n*IMPORTANT*: Remember that you can only do 100 free screenshots per month. To used a premium instance, use instance_id=65 for example.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateScreenshot.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteScreenshot": {
+            "main": "./lib/actions/DeleteScreenshot.js",
+            "title": "Delete screenshot data",
+            "description": "You can delete details of your screenshots to remove any confidential information.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteScreenshot.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "HostScreenshot": {
+            "main": "./lib/actions/HostScreenshot.js",
+            "title": "Host thumbnails on your own S3 account or on Browshot.",
+            "description": "You can host screenshots and thumbnails on your own S3 account or on Browshot.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/HostScreenshot.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetHTML": {
+            "main": "./lib/actions/GetHTML.js",
+            "title": "Get the HTML code",
+            "description": "Retrieve the HTML code of the rendered page. This API call should be used when html=1 was specified in the screenshot request.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetHTML.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetScreenshotInfo": {
+            "main": "./lib/actions/GetScreenshotInfo.js",
+            "title": "Query screenshot status",
+            "description": "Once a screenshot has been requested, its status must be checked until it is either \"error\" or \"finished\".",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetScreenshotInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetMultipleScreenshotsInfo": {
+            "main": "./lib/actions/GetMultipleScreenshotsInfo.js",
+            "title": "Get information about screenshots",
+            "description": "Get information about the last 100 screenshots requested.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetMultipleScreenshotsInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateMultipleScreenshots": {
+            "main": "./lib/actions/CreateMultipleScreenshots.js",
+            "title": "Request multiple screenshots",
+            "description": "Request multiple screenshots in one API call. The API call accepts all the parameters supported by screenshot/create.\nYou can specify up to 10 URLs and 10 instances for a total of 100 screenshots in one API call.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateMultipleScreenshots.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SearchScreenshot": {
+            "main": "./lib/actions/SearchScreenshot.js",
+            "title": "Search for screenshots",
+            "description": "Search for screenshots of a specific URL.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SearchScreenshot.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ShareScreenshot": {
+            "main": "./lib/actions/ShareScreenshot.js",
+            "title": "Share a screenshot",
+            "description": "You can make your screenshots public, add notes, and share it with your friends and colleagues. Only screenshots which are successfully completed can be shared.n the thumbnail. You can take a 1024x768 screenshot, crop it to 768x768, and get it scaled down to 300x300.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ShareScreenshot.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetThumbnail": {
+            "main": "./lib/actions/GetThumbnail.js",
+            "title": "Retrieve a thumbnail image",
+            "description": "Unlike the other API calls, this API sends back the thumbnail as a PNG file, not JSON. The HTTP response code indicates whether the screenshot was successful (200), or incomplete (404) or failed (404). If the screenshot failed or is not finished, a default image \"Not found\" is sent.\n\nYou can crop your screenshots. The crop is done first, then the thumbnail. You can take a 1024x768 screenshot, crop it to 768x768, and get it scaled down to 300x300.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetThumbnail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
